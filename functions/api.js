@@ -3,7 +3,7 @@ const serverless = require("serverless-http");
 const app = express();
 const router = express.Router();
 const nodemailer = require("nodemailer");
-const bodyparser = require('bodyparser');
+const bodyparser = require('body-parser');
 
 router.get("/", (req, res) => {
   res.send("App is running..");

@@ -3,6 +3,7 @@ const serverless = require("serverless-http");
 const app = express();
 const router = express.Router();
 const nodemailer = require("nodemailer");
+const bodyparser = require('bodyparser');
 
 router.get("/", (req, res) => {
   res.send("App is running..");
@@ -38,4 +39,5 @@ router.post("/sendmail", (req, res) => {
 });
 
 app.use("/.netlify/functions/api", router);
+app.use(bodyparser.json())
 module.exports.handler = serverless(app);
